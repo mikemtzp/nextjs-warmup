@@ -8,6 +8,7 @@ const handler = nc()
     res.json({message: 'posted'})
   })
 
+// It's important to ALWAYS EXPORT to make the api work correctly
 export default handler;
 
 // Doing a simple api with a message 'Hello'
