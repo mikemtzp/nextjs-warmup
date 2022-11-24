@@ -1,4 +1,6 @@
-import React from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import { useRouter } from 'next/router';
 // use { withRouter } when working with class components
 
@@ -11,14 +13,14 @@ const Page = () => {
 
   // router.query is gonna be an object with any associated params on there
   // We are destructuring { id } because that's the name we gave to the [id].jsx file
-  const { id } = router.query
+  const { id } = router.query;
 
   // The next snippet is going to display the id that we pass to the route in the 'h1' title
   return (
-    <h1>
-      Note {id}
-    </h1>
-  )
-}
+    <div sx={{variant: 'containers.page'}}>
+      <h1>Note: {id} </h1>
+    </div>
+  );
+};
 
 export default Page;
