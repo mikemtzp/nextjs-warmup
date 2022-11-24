@@ -24,8 +24,7 @@ const Page = () => {
 
       <p>
         <Link
-          href='notes/[programmatic-routing]'
-          as={`notes/programmatic-routing`}
+          href='notes/programmatic-routing'
         >
           Got to Programmatic Routing
         </Link>
