@@ -1,4 +1,6 @@
-import React from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 // We use <Link> to navigate between pages using client-side routing
 // Excellent choice for SPA's fast navigation. FOr external links it's better an <a> to avoid re-rendering
 import Link from 'next/link';
@@ -11,36 +13,38 @@ const Page = () => {
     .map((e, i) => ({ id: i, title: `Note: ${i}` }));
 
   return (
-    <div>
-      <h1>Notes Page</h1>
+    <div sx={{variant: 'containers.page'}}>
+      <h1>My notes</h1>
 
       {/* For dynamic routes navigation we pass to href the path of the page
         rather than an URL and we use the 'as' to pass an ID e.g. as={`notes/${id}`}*/}
-      <p>
+      {/* <p>
         <Link href='notes/[id]' as={`notes/1`}>
           Note 1
         </Link>
       </p>
 
       <p>
-        <Link
-          href='notes/programmatic-routing'
-        >
+        <Link href='notes/programmatic-routing'>
           Got to Programmatic Routing
         </Link>
       </p>
 
       <p>
         <Link href='/'>Got to Home</Link>
-      </p>
+      </p> */}
 
-      {notes.map((note) => (
-        <div key={note.id}>
-          <Link key={note.id} href='/notes/[id]' as={`/notes/${note.id}`}>
-            <strong>{note.title}</strong>
-          </Link>
-        </div>
-      ))}
+      <div sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'}}>
+        {notes.map(note => (
+            <div sx={{width: '33%', p: 2}} key={note.id}>
+              <Link key={note.id} href="/notes/[id]" as={`/notes/${note.id}`} sx={{textDecoration: 'none', cursor: 'pointer'}}>
+                  <div sx={{variant: 'containers.card',}}>
+                    <strong>{note.title}</strong>
+                  </div>
+              </Link>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
