@@ -24,12 +24,29 @@ const Nav = () => (
         height: '100%',
       }}
     >
-      <Link href='/' sx={{ fontWeight: 'bold', fontSize: 4, cursor: 'pointer' }}>
+      <Link
+        href='/'
+        sx={{ fontWeight: 'bold', fontSize: 4, cursor: 'pointer' }}
+      >
         Note App
       </Link>
 
-      <Link href='/notes' sx={{ color: 'text', fontSize: 3, cursor: 'pointer' }}>
-        notes
+      <Link
+        href='/notes'
+        sx={{ color: 'text', fontSize: 3, cursor: 'pointer' }}
+      >
+        Notes
+      </Link>
+
+      <Link
+        sx={{
+          color: 'text',
+          fontSize: 3,
+          cursor: 'pointer',
+        }}
+        href={process.env.customKey}
+      >
+        Help
       </Link>
     </nav>
   </header>
