@@ -7,11 +7,7 @@ import Link from 'next/link';
 
 // By putting our component in the route pages/notes/index.jsx
 // Next will automatically set the rouyte to be 'http://localhost:3000/notes'
-const Page = () => {
-  const notes = new Array(15)
-    .fill(1)
-    .map((e, i) => ({ id: i, title: `Note: ${i}` }));
-
+const Page = ({notes}) => {
   return (
     <div sx={{variant: 'containers.page'}}>
       <h1>My notes</h1>
@@ -50,6 +46,12 @@ const Page = () => {
 };
 
 export default Page;
+
+export async function getServerSideProps() {
+  const response = await fetch(`http://localhost:3000/api/note/`)
+  const {data} = await response.json()
+  return { props: { notes: data } }
+}
 
 /* 
 * getStaticProps example:
