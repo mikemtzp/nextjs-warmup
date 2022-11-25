@@ -1,7 +1,7 @@
 // /pages/blog/:slug.js
 
 const IndexPage = () => {// jsx }
-  export default IndexPage
+  // export default IndexPage
 }
   
 export async function getStaticPaths() {
