@@ -50,3 +50,9 @@ const Page = () => {
 };
 
 export default Page;
+
+// getStaticProps example
+// export function getStaticProps(context) {
+//   console.log(context);
+//   return {props: {}}
+// }
