@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 // use { withRouter } when working with class components
 
 // By putting our component in the route pages/notes/[id].jsx
@@ -40,10 +40,12 @@ export async function getServerSideProps({params, req, res}) {
       props: {}
     }
   }
-    
-  const {data} = await response.json()
 
-  return {
-    props: { note: data }
+  const {data} = await response.json()
+  
+  if (data) {
+    return {
+      props: {note: data}
+    }
   }  
 }
