@@ -56,3 +56,8 @@ export default Page;
 //   console.log(context);
 //   return {props: {}}
 // }
+
+
+// getStaticProps: is executed ONCE at build time. Use it when data comes from a headless CMS.
+// getsStaticPaths: use it if we have  a synamic url [id].jsx and we NEED the value of the  params'. Must be used with getStaticProps
+// getServerSideProps: is always executed per request. It's true SSR. Better for placing a dynamic user ID
